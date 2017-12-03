@@ -1,0 +1,7 @@
+#ifndef CONSTANTS
+#define CONSTANTS
+
+#define OTHER_SEASONS_TIME	23328000 	// 9*30*24*60*60
+#define SUMMER_TIME 		8208000		// (365 - 9*30)*24*60*60
+
+#endif //CONSTANTS
