@@ -4,7 +4,8 @@ project(IMS)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-pedantic -Wall -lm -lsimlib -DECHO")
 
-set(SOURCE_FILES main.cpp debug.h counters.cpp counters.h constants.h)
+set(SOURCE_FILES main.cpp debug.h counters.cpp counters.h constants.h line.cpp line.h
+        screws.cpp screws.h)
 
 add_executable(IMS ${SOURCE_FILES})
 
