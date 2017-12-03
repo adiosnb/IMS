@@ -3,6 +3,21 @@
 
 #include <simlib.h>
 
+
+/*
+ * Counters will singal program using Facilities.
+ */
+extern Facility summer;
+
+extern Facility weekend;
+
+extern Facility start_break;
+
+extern Facility end_break;
+
+/*
+ * Counters
+ */
 class YearCounter : public Process {
 public:
 	void Behavior() override;
@@ -19,10 +34,7 @@ public:
 };
 
 
-/*
- * Counters will singal program using Facilities.
- */
 
-extern Facility summer;
+
 
 #endif //COUNTERS
