@@ -7,7 +7,7 @@
 int main() {
 
 
-	Init(0, MAX_RUN_TIME);
+	Init(0, TEST_ONE_DAY);
 
 	(new YearCounter)->Activate();
 	(new WeekCounter)->Activate();

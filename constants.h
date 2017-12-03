@@ -15,4 +15,10 @@
 #define SHORT_BREAK			600			// 10*60
 #define LONG_BREAK			1200		// 20*60
 
+
+/*
+ * TEST TIME
+ */
+#define TEST_ONE_DAY 		86400
+
 #endif //CONSTANTS

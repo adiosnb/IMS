@@ -22,7 +22,6 @@ void YearCounter::Behavior() {
 		Release(summer);
 		Wait(SUMMER_TIME);
 		echo("It's winter");
-		echo(Time);
 	}
 }
 
