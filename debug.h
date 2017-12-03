@@ -1,7 +1,7 @@
 #ifndef DEBUG
 #define DEBUG
 
-    #ifdef SERVER_LOGGING
+    #ifdef ECHO
 
     #include <iostream>
 

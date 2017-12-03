@@ -4,15 +4,18 @@
 #include <simlib.h>
 
 class YearCounter : public Process {
-	void Behavior();
+public:
+	void Behavior() override;
 };
 
 class WeekCounter : public Process {
-	void Behavior();
+public:
+	void Behavior() override;
 };
 
 class BreakCounter : public Process {
-	void Behavior();
+public:
+	void Behavior() override;
 };
 
 
@@ -20,6 +23,6 @@ class BreakCounter : public Process {
  * Counters will singal program using Facilities.
  */
 
-Facility summer;
+extern Facility summer;
 
 #endif //COUNTERS
