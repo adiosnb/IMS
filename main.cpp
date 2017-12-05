@@ -9,7 +9,7 @@
 int main() {
 
 
-	Init(0, 60*60*24*3);
+	Init(0, 60*60*24);
 
 	(new YearCounter)->Activate();
 	(new WeekCounter)->Activate();

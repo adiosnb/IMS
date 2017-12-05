@@ -3,21 +3,28 @@
 #include "screws.h"
 #include "counters.h"
 #include "debug.h"
+#include "stats.h"
 
+long long staged_cars = 0;
 long long proccessed_cars = 0;
+long long created_cars = 0;
 
 int post1_mux = 0;
 int post2_mux = 0;
 int post3_mux = 0;
 int post4_mux = 0;
 
-#define WAIT_CAR 30
+#define WAIT_CAR 10
 
 void Car::Behavior() {
+
+	created_cars++;
 
 	echo("Entering post1");
 	while(post1_mux< 1) Wait(WAIT_CAR);
 	post1_mux -= 1;
+	staged_cars++;
+	queue_of_cars(staged_cars - proccessed_cars);
 	echo("Leaving post1");
 	while(post2_mux < 2) Wait(WAIT_CAR);
 	post2_mux -= 2;
@@ -37,12 +44,15 @@ void Car::Behavior() {
 	}
 	echo("Car Proccesed");
 	echo(Time);
+
 	proccessed_cars++;
 }
 
 void CarGenerator::Behavior() {
 	(new Car)->Activate();
-	Activate(Time + Uniform(50, 60));
+	echo("New car created");
+	echo(Time);
+	Activate(Time + Uniform(59, 60));
 }
 
 void MainLineProc::Behavior() {
