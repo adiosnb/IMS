@@ -4,14 +4,15 @@
 #include "counters.h"
 #include "debug.h"
 #include "stats.h"
+#include "params.h"
 
 long long staged_cars = 0;
 long long proccessed_cars = 0;
 long long created_cars = 0;
 
-int post1_mux = 0;
-int post2_mux = 0;
-int post3_mux = 0;
+int post1_mux = 3;
+int post2_mux = 2;
+int post3_mux = 1;
 int post4_mux = 0;
 
 #define WAIT_CAR 10
@@ -21,19 +22,19 @@ void Car::Behavior() {
 	created_cars++;
 
 	echo("Entering post1");
-	while(post1_mux< 1) Wait(WAIT_CAR);
-	post1_mux -= 1;
+	while(!post1_mux) Wait(WAIT_CAR);
+	post1_mux--;
 	staged_cars++;
 	queue_of_cars(staged_cars - proccessed_cars);
 	echo("Leaving post1");
-	while(post2_mux < 2) Wait(WAIT_CAR);
-	post2_mux -= 2;
+	while(!post2_mux) Wait(WAIT_CAR);
+	post2_mux--;
 	echo("Leaving post2");
-	while (post3_mux < 3) Wait(WAIT_CAR);
-	post3_mux -= 3;
+	while (!post3_mux) Wait(WAIT_CAR);
+	post3_mux--;
 	echo("Leaving post3");
-	while (post4_mux < 4) Wait(WAIT_CAR);
-	post4_mux -= 4;
+	while (!post4_mux) Wait(WAIT_CAR);
+	post4_mux--;
 	echo("Leaving post4");
 
 	if (screw_errors.Capacity()){
@@ -52,12 +53,12 @@ void CarGenerator::Behavior() {
 	(new Car)->Activate();
 	echo("New car created");
 	echo(Time);
-	Activate(Time + Uniform(59, 60));
+	Activate(Time + Uniform(50, 60));
 }
 
 void MainLineProc::Behavior() {
 	while (true) {
-		if (!weekend.Busy() and screw_errors.Capacity()) {
+		if (!weekend.Busy() and screw_errors.Capacity() and !no_errors) {
 			screw_errors.SetCapacity(0);
 		} else {
 			Seize(working_week);
@@ -76,11 +77,11 @@ void MainLineProc::Behavior() {
 			}
 
 			// If screw brake is appended into store
-			if (Random() <= SCREW_IS_BROOKEN) {
+			if (Random() <= SCREW_IS_BROOKEN and !backup_screw) {
 				screw_errors.SetCapacity(screw_errors.Capacity() + 1);
 			}
 
-			if (Random() <= PART_IS_MISSING) {
+			if (Random() <= PART_IS_MISSING and !store_prediction) {
 				if (Random() <= PART_IS_NOT_IN_STORE) {
 					Wait(Uniform(WAIT_NOT_IN_STORE_LOW, WAIT_NOT_IN_STORE_HIGH));
 				} else {
@@ -91,6 +92,7 @@ void MainLineProc::Behavior() {
 			if (!screw_errors.Empty()) {
 				Wait(Uniform(WAIT_BROOKEN_SCREW_LOW, WAIT_BROOKEN_SCREW_HIGH));
 			} else {
+				// TODO : shorter period for car processing
 				Wait(Uniform(WAIT_STD_LOW, WAIT_STD_HIGH));
 			}
 
