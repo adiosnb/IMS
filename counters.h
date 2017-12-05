@@ -3,6 +3,7 @@
 
 #include <simlib.h>
 
+#define SHIFTS_IN_DAY 3
 
 /*
  * Counters will singal program using Facilities.

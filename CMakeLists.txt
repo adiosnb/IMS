@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 3.8)
 project(IMS)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "-pedantic -Wall -lm -lsimlib -DECHO")
+set(CMAKE_CXX_FLAGS "-pedantic -Wall -lm -lsimlib ")
 
 set(SOURCE_FILES main.cpp debug.h counters.cpp counters.h constants.h line.cpp line.h
-        screws.cpp screws.h)
+        screws.cpp screws.h stats.cpp stats.h)
 
 add_executable(IMS ${SOURCE_FILES})
 

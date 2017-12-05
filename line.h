@@ -8,6 +8,7 @@ extern int post2_mux;
 extern int post3_mux;
 extern int post4_mux;
 
+extern long long proccessed_cars;
 
 class CarGenerator : public Event {
 public:

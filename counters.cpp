@@ -1,6 +1,8 @@
 #include "counters.h"
 #include "constants.h"
 #include "debug.h"
+#include "line.h"
+#include "stats.h"
 
 Facility summer("Summer");
 
@@ -52,36 +54,52 @@ void BreakCounter::Behavior() {
 	Seize(start_break);
 	Seize(end_break);
 
+	long long cars_before_shift;
+	long long cars_after_shift;
+
+	long long cars_start_day;
+	long long cars_end_day;
+
 	while (true) {
-		echo("Starting new shift");
-		// At this point we have both breaks
-		Wait(WORKING_TIME);
+		cars_start_day = proccessed_cars;
+		for (int i = 0; i < SHIFTS_IN_DAY; i++) {
+			cars_before_shift = proccessed_cars;
+			echo("Starting new shift");
+			// At this point we have both breaks
+			Wait(WORKING_TIME);
 
-		// First short break is comming
-		Release(start_break);
-		echo("Starting short break");
-		Wait(SHORT_BREAK);
-		Seize(start_break);
+			// First short break is comming
+			Release(start_break);
+			echo("Starting short break");
+			Wait(SHORT_BREAK);
+			Seize(start_break);
 
-		// end of first break
-		Release(end_break);
-		Priority = 0;
-		Seize(end_break);
+			// end of first break
+			Release(end_break);
+			Priority = 0;
+			Seize(end_break);
 
-		Wait(WORKING_TIME);
+			Wait(WORKING_TIME);
 
-		// First short break is comming
-		Release(start_break);
-		echo("Starting long break");
-		Wait(LONG_BREAK);
-		Seize(start_break);
+			// First short break is comming
+			Release(start_break);
+			echo("Starting long break");
+			Wait(LONG_BREAK);
+			Seize(start_break);
 
-		// end of first break
-		Release(end_break);
-		Priority = 0;
-		Seize(end_break);
+			// end of first break
+			Release(end_break);
+			Priority = 0;
+			Seize(end_break);
 
-		Wait(WORKING_TIME);
+			Wait(WORKING_TIME);
+
+			cars_after_shift = proccessed_cars;
+			throughput_8_hours(cars_after_shift - cars_before_shift);
+		}
+		cars_end_day = proccessed_cars;
+
+		throughput_24_hours(cars_end_day - cars_start_day);
 	}
 
 }

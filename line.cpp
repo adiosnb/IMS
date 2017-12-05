@@ -4,25 +4,28 @@
 #include "counters.h"
 #include "debug.h"
 
+long long proccessed_cars = 0;
+
 int post1_mux = 0;
 int post2_mux = 0;
 int post3_mux = 0;
 int post4_mux = 0;
 
+#define WAIT_CAR 30
 
 void Car::Behavior() {
 
 	echo("Entering post1");
-	while(post1_mux< 1) Wait(1);
+	while(post1_mux< 1) Wait(WAIT_CAR);
 	post1_mux -= 1;
 	echo("Leaving post1");
-	while(post2_mux < 2) Wait(1);
+	while(post2_mux < 2) Wait(WAIT_CAR);
 	post2_mux -= 2;
 	echo("Leaving post2");
-	while (post3_mux < 3) Wait(1);
+	while (post3_mux < 3) Wait(WAIT_CAR);
 	post3_mux -= 3;
 	echo("Leaving post3");
-	while (post4_mux < 4) Wait(1);
+	while (post4_mux < 4) Wait(WAIT_CAR);
 	post4_mux -= 4;
 	echo("Leaving post4");
 
@@ -34,6 +37,7 @@ void Car::Behavior() {
 	}
 	echo("Car Proccesed");
 	echo(Time);
+	proccessed_cars++;
 }
 
 void CarGenerator::Behavior() {
