@@ -37,8 +37,8 @@
 #define SCREW_IS_OVERHEATED				(1/1500.0)
 
 
-#define CAR_GEN_LOW						50
-#define CAR_GEN_HIGH					60
+#define CAR_GEN_LOW						53
+#define CAR_GEN_HIGH					56
 
 
 #define WAIT_IN_STORE					5
