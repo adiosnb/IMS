@@ -21,7 +21,7 @@
  * Monitor checking times
  */
 #define MONITOR_CHECKING_NO_ERROR		15
-#define MONITOR_CHECKING_SCREW_ERROR	60
+#define MONITOR_CHECKING_SCREW_ERROR	45
 
 
 /*
