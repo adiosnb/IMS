@@ -4,6 +4,8 @@
 
 Facility summer("Summer");
 
+Facility working_week("Working week");
+
 Facility weekend("Weekend");
 
 Facility start_break("Start break");
@@ -28,14 +30,17 @@ void YearCounter::Behavior() {
 void WeekCounter::Behavior() {
 	Priority = DEFAULT_COUNTER_PRIORITY;
 	echo("Starting weekend counter");
+	Seize(working_week);
 
 	while (true){
 		Seize(weekend);
+		Release(working_week);
 		echo("It's a week");
 		Wait(WEEK_DAYS);
 
 		echo("Weekend starting, party up!!!")
 		Release(weekend);
+		Seize(working_week);
 		Wait(WEEKEND_DAYS);
 	}
 }

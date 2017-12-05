@@ -9,6 +9,8 @@
  */
 extern Facility summer;
 
+extern Facility working_week;
+
 extern Facility weekend;
 
 extern Facility start_break;

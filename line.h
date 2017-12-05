@@ -3,10 +3,11 @@
 
 #include <simlib.h>
 
-extern Facility post1_mux;
-extern Facility post2_mux;
-extern Facility post3_mux;
-extern Facility post4_mux;
+extern int post1_mux;
+extern int post2_mux;
+extern int post3_mux;
+extern int post4_mux;
+
 
 class CarGenerator : public Event {
 public:
@@ -18,6 +19,9 @@ public:
 	void Behavior();
 };
 
-
+class MainLineProc : public Process {
+public:
+	void Behavior();
+};
 
 #endif //LINE
