@@ -8,3 +8,4 @@ Zníženie doby práce z 54 sekúnd na 50, čo to ovplyvní
 Zavedenie náhradnej uťahovačky / vypnutie kazenia uťahovačky
 Prediktívne dopĺňanie dielov
 Zrušenie chýb spôsobených z leta (lepšia klíma haly)
+Oprava uťahovačky za 1 deň miesto víkend
