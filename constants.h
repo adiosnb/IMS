@@ -32,6 +32,9 @@
 #define PART_IS_MISSING					(1/500)
 #define PART_IS_NOT_IN_STORE			(21/100)
 
+#define SCREW_IS_OVERHEATED				(1/1500)
+
+
 #define WAIT_IN_STORE					5
 #define WAIT_NOT_IN_STORE_LOW			15
 #define WAIT_NOT_IN_STORE_HIGH			30
@@ -41,6 +44,8 @@
 
 #define WAIT_BROOKEN_SCREW_LOW					50
 #define WAIT_BROOKEN_SCREW_HIGH					75
+
+#define WAIT_OVERHEATED_SCREW			900		// 15*60
 
 
 /*

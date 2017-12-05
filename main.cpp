@@ -8,7 +8,7 @@
 int main() {
 
 
-	Init(0, 300);
+	Init(0, 600);
 
 	(new YearCounter)->Activate();
 	(new WeekCounter)->Activate();
