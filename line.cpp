@@ -71,6 +71,7 @@ void MainLineProc::Behavior() {
 				Seize(summer);
 
 				if (Random() <= SCREW_IS_OVERHEATED) {
+					screw_overheated++;
 					screw_errors.SetCapacity(screw_errors.Capacity() + 1);
 					(new OverheatedScrew)->Activate();
 					Release(summer);
@@ -82,10 +83,12 @@ void MainLineProc::Behavior() {
 
 			// If screw brake is appended into store
 			if (Random() <= SCREW_IS_BROKEN and !backup_screw) {
+				screw_errors_count++;
 				screw_errors.SetCapacity(screw_errors.Capacity() + 1);
 			}
 
 			if (Random() <= PART_IS_MISSING and !store_prediction) {
+				missing_part++;
 				if (Random() <= PART_IS_NOT_IN_STORE) {
 					Wait(Uniform(WAIT_NOT_IN_STORE_LOW, WAIT_NOT_IN_STORE_HIGH));
 				} else {

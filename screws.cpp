@@ -5,5 +5,5 @@ Store screw_errors;
 
 void OverheatedScrew::Behavior() {
 	Wait(Exponential(WAIT_OVERHEATED_SCREW));
-	Enter(screw_errors);
+	screw_errors.SetCapacity(screw_errors.Capacity() - 1);
 }

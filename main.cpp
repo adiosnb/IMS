@@ -12,6 +12,10 @@ int store_prediction = 0;
 int no_errors = 0 ;
 int shorter_time = 0;
 
+int screw_errors_count = 0;
+int screw_overheated = 0;
+int missing_part = 0;
+
 void arg_parser(int argc, char **argv);
 
 int main(int argc, char **argv) {
@@ -19,7 +23,7 @@ int main(int argc, char **argv) {
 	arg_parser(argc, argv);
 
 	SetCalendar("cq");
-	Init(0, 60*60*24*60);
+	Init(0, 60*60*24*360);
 
 	(new YearCounter)->Activate();
 	(new WeekCounter)->Activate();
@@ -42,6 +46,11 @@ int main(int argc, char **argv) {
 	throughput_24_hours.Output();
 	throughput_while_error.Output();
 	queue_of_cars.Output();
+
+	std::cout << "While this program running:\n";
+	std::cout << "\tMissing parts : " << missing_part << "\n";
+	std::cout << "\tOverheated screws : " << screw_overheated << "\n";
+	std::cout << "\tBroken screws : "  << screw_errors_count << "\n";
 
 	return 0;
 }
