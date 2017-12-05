@@ -77,7 +77,7 @@ void MainLineProc::Behavior() {
 			}
 
 			// If screw brake is appended into store
-			if (Random() <= SCREW_IS_BROOKEN and !backup_screw) {
+			if (Random() <= SCREW_IS_BROKEN and !backup_screw) {
 				screw_errors.SetCapacity(screw_errors.Capacity() + 1);
 			}
 

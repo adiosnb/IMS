@@ -30,7 +30,7 @@
  * Thresholds for randomization
  */
 
-#define SCREW_IS_BROOKEN				(1/4000)
+#define SCREW_IS_BROKEN				(1/4000)
 #define PART_IS_MISSING					(1/500)
 #define PART_IS_NOT_IN_STORE			(21/100)
 
