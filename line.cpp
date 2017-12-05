@@ -12,10 +12,6 @@ int post4_mux = 0;
 
 void Car::Behavior() {
 
-	static int car = 0;
-
-
-
 	echo("Entering post1");
 	while(post1_mux< 1) Wait(1);
 	post1_mux -= 1;
