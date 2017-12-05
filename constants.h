@@ -30,11 +30,11 @@
  * Thresholds for randomization
  */
 
-#define SCREW_IS_BROKEN				(1/4000)
-#define PART_IS_MISSING					(1/500)
-#define PART_IS_NOT_IN_STORE			(21/100)
+#define SCREW_IS_BROKEN				(1/4000.0)
+#define PART_IS_MISSING					(1/500.0)
+#define PART_IS_NOT_IN_STORE			(21/100.0)
 
-#define SCREW_IS_OVERHEATED				(1/1500)
+#define SCREW_IS_OVERHEATED				(1/1500.0)
 
 
 #define CAR_GEN_LOW						50

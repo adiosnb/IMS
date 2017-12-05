@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 	arg_parser(argc, argv);
 
 	SetCalendar("cq");
-	Init(0, 60*60*24*30);
+	Init(0, 60*60*24*10);
 
 	(new YearCounter)->Activate();
 	(new WeekCounter)->Activate();
@@ -38,9 +38,9 @@ int main(int argc, char **argv) {
 	Run();
 
 
-	throughput_8_hours.Output();
-	throughput_24_hours.Output();
-	throughput_while_error.Output();
+	//throughput_8_hours.Output();
+	//throughput_24_hours.Output();
+	//throughput_while_error.Output();
 	queue_of_cars.Output();
 
 	return 0;
