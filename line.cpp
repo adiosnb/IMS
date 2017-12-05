@@ -1,3 +1,4 @@
+#include <iostream>
 #include "line.h"
 #include "constants.h"
 #include "screws.h"
@@ -15,7 +16,7 @@ int post2_mux = 2;
 int post3_mux = 1;
 int post4_mux = 0;
 
-#define WAIT_CAR 30
+#define WAIT_CAR 10
 
 void Car::Behavior() {
 
@@ -25,7 +26,7 @@ void Car::Behavior() {
 	while(!post1_mux) Wait(WAIT_CAR);
 	post1_mux--;
 	staged_cars++;
-	queue_of_cars(staged_cars - processed_cars);
+	queue_of_cars(created_cars - staged_cars);
 	echo("Leaving post1");
 	while(!post2_mux) Wait(WAIT_CAR);
 	post2_mux--;
@@ -50,7 +51,9 @@ void Car::Behavior() {
 }
 
 void CarGenerator::Behavior() {
-	(new Car)->Activate();
+	if (!working_week.Busy()) {
+		(new Car)->Activate();
+	}
 	echo("New car created");
 	echo(Time);
 	Activate(Time + Uniform(CAR_GEN_LOW, CAR_GEN_HIGH));
@@ -58,12 +61,13 @@ void CarGenerator::Behavior() {
 
 void MainLineProc::Behavior() {
 	while (true) {
-		if (!weekend.Busy() and screw_errors.Capacity() and !no_errors) {
+		if (!weekend.Busy() and screw_errors.Capacity()) {
 			screw_errors.SetCapacity(0);
+			echo("weekend");
 		} else {
 			Seize(working_week);
-
-			if (!summer.Busy()) {
+			Release(working_week);
+			if (!summer.Busy() and !no_errors) {
 				Seize(summer);
 
 				if (Random() <= SCREW_IS_OVERHEATED) {
@@ -92,8 +96,12 @@ void MainLineProc::Behavior() {
 			if (!screw_errors.Empty()) {
 				Wait(Uniform(WAIT_BROKEN_SCREW_LOW, WAIT_BROKEN_SCREW_HIGH));
 			} else {
-				// TODO : shorter period for car processing
-				Wait(Uniform(WAIT_STD_LOW, WAIT_STD_HIGH));
+				if (shorter_time){
+					Wait(WAIT_SHORTER);
+				}
+				else {
+					Wait(Uniform(WAIT_STD_LOW, WAIT_STD_HIGH));
+				}
 			}
 
 			echo("Line is moving ");
@@ -104,7 +112,6 @@ void MainLineProc::Behavior() {
 			post3_mux += 1;
 			post4_mux += 1;
 
-			Release(working_week);
 		}
 	}
 }

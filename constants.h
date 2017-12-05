@@ -3,7 +3,7 @@
 
 #define DEFAULT_COUNTER_PRIORITY	2
 
-#define INIT_CARS			15
+#define INIT_CARS			7
 
 #define MAX_RUN_TIME		999999999
 
@@ -47,6 +47,7 @@
 
 #define WAIT_STD_LOW					50
 #define WAIT_STD_HIGH					60
+#define WAIT_SHORTER					50
 
 #define WAIT_BROKEN_SCREW_LOW					50
 #define WAIT_BROKEN_SCREW_HIGH					75

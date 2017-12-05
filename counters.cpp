@@ -45,6 +45,7 @@ void WeekCounter::Behavior() {
 		Release(weekend);
 		Seize(working_week);
 		Wait(WEEKEND_DAYS);
+		echo("End of weekend");
 	}
 }
 
