@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 
 	arg_parser(argc, argv);
 
-	Init(0, 60*60*24*7);
+	Init(0, 60*60*24*30);
 
 	(new YearCounter)->Activate();
 	(new WeekCounter)->Activate();

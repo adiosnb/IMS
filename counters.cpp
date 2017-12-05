@@ -1,3 +1,4 @@
+#include <iostream>
 #include "counters.h"
 #include "constants.h"
 #include "debug.h"
@@ -98,6 +99,10 @@ void BreakCounter::Behavior() {
 			throughput_8_hours(cars_after_shift - cars_before_shift);
 		}
 		cars_end_day = proccessed_cars;
+
+		static int day = 0;
+
+		std::cout << "day" << day++ << std::endl;
 
 		throughput_24_hours(cars_end_day - cars_start_day);
 	}

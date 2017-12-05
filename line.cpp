@@ -15,7 +15,7 @@ int post2_mux = 2;
 int post3_mux = 1;
 int post4_mux = 0;
 
-#define WAIT_CAR 10
+#define WAIT_CAR 30
 
 void Car::Behavior() {
 
@@ -53,7 +53,7 @@ void CarGenerator::Behavior() {
 	(new Car)->Activate();
 	echo("New car created");
 	echo(Time);
-	Activate(Time + Uniform(50, 60));
+	Activate(Time + Uniform(CAR_GEN_LOW, CAR_GEN_HIGH));
 }
 
 void MainLineProc::Behavior() {

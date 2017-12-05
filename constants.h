@@ -3,7 +3,7 @@
 
 #define DEFAULT_COUNTER_PRIORITY	2
 
-#define INIT_CARS			10
+#define INIT_CARS			15
 
 #define MAX_RUN_TIME		999999999
 
@@ -35,6 +35,10 @@
 #define PART_IS_NOT_IN_STORE			(21/100)
 
 #define SCREW_IS_OVERHEATED				(1/1500)
+
+
+#define CAR_GEN_LOW						50
+#define CAR_GEN_HIGH					60
 
 
 #define WAIT_IN_STORE					5
