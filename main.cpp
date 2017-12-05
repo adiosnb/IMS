@@ -18,6 +18,7 @@ int main(int argc, char **argv) {
 
 	arg_parser(argc, argv);
 
+	SetCalendar("cq");
 	Init(0, 60*60*24*30);
 
 	(new YearCounter)->Activate();

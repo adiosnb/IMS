@@ -62,9 +62,9 @@ void BreakCounter::Behavior() {
 	long long cars_end_day;
 
 	while (true) {
-		cars_start_day = proccessed_cars;
+		cars_start_day = processed_cars;
 		for (int i = 0; i < SHIFTS_IN_DAY; i++) {
-			cars_before_shift = proccessed_cars;
+			cars_before_shift = processed_cars;
 			echo("Starting new shift");
 			// At this point we have both breaks
 			Wait(WORKING_TIME);
@@ -95,10 +95,10 @@ void BreakCounter::Behavior() {
 
 			Wait(WORKING_TIME);
 
-			cars_after_shift = proccessed_cars;
+			cars_after_shift = processed_cars;
 			throughput_8_hours(cars_after_shift - cars_before_shift);
 		}
-		cars_end_day = proccessed_cars;
+		cars_end_day = processed_cars;
 
 		static int day = 0;
 

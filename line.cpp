@@ -7,7 +7,7 @@
 #include "params.h"
 
 long long staged_cars = 0;
-long long proccessed_cars = 0;
+long long processed_cars = 0;
 long long created_cars = 0;
 
 int post1_mux = 3;
@@ -25,7 +25,7 @@ void Car::Behavior() {
 	while(!post1_mux) Wait(WAIT_CAR);
 	post1_mux--;
 	staged_cars++;
-	queue_of_cars(staged_cars - proccessed_cars);
+	queue_of_cars(staged_cars - processed_cars);
 	echo("Leaving post1");
 	while(!post2_mux) Wait(WAIT_CAR);
 	post2_mux--;
@@ -46,7 +46,7 @@ void Car::Behavior() {
 	echo("Car Proccesed");
 	echo(Time);
 
-	proccessed_cars++;
+	processed_cars++;
 }
 
 void CarGenerator::Behavior() {
@@ -90,7 +90,7 @@ void MainLineProc::Behavior() {
 			}
 
 			if (!screw_errors.Empty()) {
-				Wait(Uniform(WAIT_BROOKEN_SCREW_LOW, WAIT_BROOKEN_SCREW_HIGH));
+				Wait(Uniform(WAIT_BROKEN_SCREW_LOW, WAIT_BROKEN_SCREW_HIGH));
 			} else {
 				// TODO : shorter period for car processing
 				Wait(Uniform(WAIT_STD_LOW, WAIT_STD_HIGH));

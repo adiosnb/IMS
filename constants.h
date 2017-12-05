@@ -48,8 +48,8 @@
 #define WAIT_STD_LOW					50
 #define WAIT_STD_HIGH					60
 
-#define WAIT_BROOKEN_SCREW_LOW					50
-#define WAIT_BROOKEN_SCREW_HIGH					75
+#define WAIT_BROKEN_SCREW_LOW					50
+#define WAIT_BROKEN_SCREW_HIGH					75
 
 #define WAIT_OVERHEATED_SCREW			900		// 15*60
 
