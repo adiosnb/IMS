@@ -97,7 +97,9 @@ void BreakCounter::Behavior() {
 			Wait(WORKING_TIME);
 
 			cars_after_shift = processed_cars;
-			throughput_8_hours(cars_after_shift - cars_before_shift);
+			if (!working_week.Busy()){
+				throughput_8_hours(cars_after_shift - cars_before_shift);
+			}
 		}
 		cars_end_day = processed_cars;
 
@@ -105,7 +107,9 @@ void BreakCounter::Behavior() {
 
 		std::cout << "day" << day++ << std::endl;
 
-		throughput_24_hours(cars_end_day - cars_start_day);
+		if (!working_week.Busy()){
+			throughput_24_hours(cars_end_day - cars_start_day);
+		}
 	}
 
 }
