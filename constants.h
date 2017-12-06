@@ -8,7 +8,7 @@
 #define MAX_RUN_TIME		999999999
 
 #define OTHER_SEASONS_TIME	23328000 	// 9*30*24*60*60
-#define SUMMER_TIME 		8208000		// (365 - 9*30)*24*60*60
+#define SUMMER_TIME 		8208000		// 365*24*60*60 - other seasons
 
 #define WEEK_DAYS			432001		// 5*24*60*60
 #define WEEKEND_DAYS		172799		// 2*24*60*60
@@ -31,17 +31,17 @@
  */
 
 #define SCREW_IS_BROKEN					(1/4000.0)
-#define PART_IS_MISSING					(1/500.0)
+#define PART_IS_MISSING					(1/600.0)
 #define PART_IS_NOT_IN_STORE			(21/100.0)
 
-#define SCREW_IS_OVERHEATED				(1/1500.0)
+#define SCREW_IS_OVERHEATED				(1/1000.0)
 
 
-#define CAR_GEN_LOW					50
+#define CAR_GEN_LOW						51
 #define CAR_GEN_HIGH					60
 
 
-#define WAIT_IN_STORE					300       // 5*60
+#define WAIT_IN_STORE					100       // 5*60
 #define WAIT_NOT_IN_STORE_LOW			600      // 10*60
 #define WAIT_NOT_IN_STORE_HIGH			1200      // 20*60
 

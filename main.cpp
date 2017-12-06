@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 	arg_parser(argc, argv);
 
 	SetCalendar("cq");
-	Init(0, 60*60*24*30);
+	Init(0, 60*60*24*365*2);
 
 	(new YearCounter)->Activate();
 	(new WeekCounter)->Activate();
