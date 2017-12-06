@@ -30,18 +30,18 @@
  * Thresholds for randomization
  */
 
-#define SCREW_IS_BROKEN					(1/4000.0)
+#define SCREW_IS_BROKEN					(1/2000.0)
 #define PART_IS_MISSING					(1/600.0)
-#define PART_IS_NOT_IN_STORE			(21/100.0)
+#define PART_IS_NOT_IN_STORE			(1/100.0)
 
-#define SCREW_IS_OVERHEATED				(1/1000.0)
+#define SCREW_IS_OVERHEATED				(1/900.0)
 
 
 #define CAR_GEN_LOW						51
 #define CAR_GEN_HIGH					60
 
 
-#define WAIT_IN_STORE					100       // 5*60
+#define WAIT_IN_STORE					240       // 5*60
 #define WAIT_NOT_IN_STORE_LOW			600      // 10*60
 #define WAIT_NOT_IN_STORE_HIGH			1200      // 20*60
 
@@ -49,7 +49,7 @@
 #define WAIT_STD_HIGH					60
 #define WAIT_SHORTER					50
 
-#define WAIT_BROKEN_SCREW_LOW					50
+#define WAIT_BROKEN_SCREW_LOW					53
 #define WAIT_BROKEN_SCREW_HIGH					75
 
 #define WAIT_OVERHEATED_SCREW			900		// 15*60
