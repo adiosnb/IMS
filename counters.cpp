@@ -18,7 +18,13 @@ Facility end_break("End break");
 void YearCounter::Behavior() {
 	Priority = DEFAULT_COUNTER_PRIORITY;
 	echo("Staring season counter");
+
+	long long start;
+	long long end;
 	while (true){
+
+		start = processed_cars;
+
 		// starting in another other season than summer
 		Seize(summer);
 		Wait(OTHER_SEASONS_TIME);
@@ -27,6 +33,8 @@ void YearCounter::Behavior() {
 		Release(summer);
 		Wait(SUMMER_TIME);
 		echo("It's winter");
+		end = processed_cars;
+		year(end - start);
 	}
 }
 
