@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
 
 	throughput_8_hours.Output();
 	throughput_24_hours.Output();
-	throughput_while_error.Output();
+	year.Output();
 	queue_of_cars.Output();
 
 	std::cout << "While this program running:\n";
