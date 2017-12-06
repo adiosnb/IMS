@@ -15,4 +15,4 @@ clean:
 	rm -rvf ims *.o
 
 pack:
-	zip xurban66_xtomas32.zip *.cpp *.h Makefile
+	zip xurban66_xtomas32.zip *.cpp *.h Makefile doc.pdf
