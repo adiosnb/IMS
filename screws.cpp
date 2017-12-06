@@ -1,7 +1,7 @@
 #include "screws.h"
 #include "constants.h"
 
-Store screw_errors;
+Store screw_errors("Screws", 0);
 
 void OverheatedScrew::Behavior() {
 	Wait(Exponential(WAIT_OVERHEATED_SCREW));

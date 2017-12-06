@@ -103,7 +103,8 @@ void MainLineProc::Behavior() {
 					Wait(WAIT_SHORTER);
 				}
 				else {
-					Wait(Uniform(WAIT_STD_LOW, WAIT_STD_HIGH));
+					Wait(55);
+					//Wait(Uniform(WAIT_STD_LOW, WAIT_STD_HIGH));
 				}
 			}
 
