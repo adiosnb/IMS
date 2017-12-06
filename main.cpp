@@ -1,7 +1,6 @@
 #include <iostream>
 #include <simlib.h>
 #include <getopt.h>
-
 #include "counters.h"
 #include "constants.h"
 #include "line.h"

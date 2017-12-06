@@ -1,4 +1,3 @@
-#include <iostream>
 #include "counters.h"
 #include "constants.h"
 #include "debug.h"
@@ -110,9 +109,6 @@ void BreakCounter::Behavior() {
 			}
 		}
 		cars_end_day = processed_cars;
-        static int day = 0;
-
-        std::cout << "day" << day++ << std::endl;
 
 		if (!working_week.Busy()){
 			throughput_24_hours(cars_end_day - cars_start_day);

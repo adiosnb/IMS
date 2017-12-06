@@ -1,4 +1,3 @@
-#include <iostream>
 #include "line.h"
 #include "constants.h"
 #include "screws.h"
@@ -103,8 +102,7 @@ void MainLineProc::Behavior() {
 					Wait(WAIT_SHORTER);
 				}
 				else {
-					Wait(55);
-					//Wait(Uniform(WAIT_STD_LOW, WAIT_STD_HIGH));
+					Wait(WAIT_STD);
 				}
 			}
 

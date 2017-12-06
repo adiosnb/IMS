@@ -5,8 +5,6 @@
 
 #define INIT_CARS			7
 
-#define MAX_RUN_TIME		999999999
-
 #define OTHER_SEASONS_TIME	23328000 	// 9*30*24*60*60
 #define SUMMER_TIME 		8208000		// 365*24*60*60 - other seasons
 
@@ -16,7 +14,6 @@
 #define WORKING_TIME		9000		// 2.5*60*60
 #define SHORT_BREAK			600			// 10*60
 #define LONG_BREAK			1200		// 20*60
-
 
 
 /*
@@ -41,12 +38,11 @@
 #define CAR_GEN_HIGH					60
 
 
-#define WAIT_IN_STORE					240       // 5*60
+#define WAIT_IN_STORE					240       // 4*60
 #define WAIT_NOT_IN_STORE_LOW			600      // 10*60
 #define WAIT_NOT_IN_STORE_HIGH			1200      // 20*60
 
-#define WAIT_STD_LOW					50
-#define WAIT_STD_HIGH					60
+#define WAIT_STD                        55
 #define WAIT_SHORTER					50
 
 #define WAIT_BROKEN_SCREW_LOW					53
@@ -54,10 +50,5 @@
 
 #define WAIT_OVERHEATED_SCREW			900		// 15*60
 
-
-/*
- * TEST TIME
- */
-#define TEST_ONE_DAY 		86400
 
 #endif //CONSTANTS
